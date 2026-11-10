@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "categories": [
+    { "id": "viewer", "name": { "en": "Viewer / Preview", "zh-Hans": "预览渲染" } },
+    { "id": "editor", "name": { "en": "Editor", "zh-Hans": "编辑增强" } },
+    { "id": "appearance", "name": { "en": "Appearance", "zh-Hans": "外观主题" } },
+    { "id": "templates", "name": { "en": "Templates", "zh-Hans": "模板片段" } },
+    { "id": "productivity", "name": { "en": "Productivity", "zh-Hans": "效率工具" } },
+    { "id": "integrations", "name": { "en": "Integrations", "zh-Hans": "集成与自动化" } },
+    { "id": "developer", "name": { "en": "Developer", "zh-Hans": "开发者" } }
+  ]
+}

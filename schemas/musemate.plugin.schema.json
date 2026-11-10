@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/niuwoai/musemate-plugins/schemas/musemate.plugin.schema.json",
+  "title": "MuseMate plugin manifest",
+  "type": "object",
+  "required": ["id", "name", "version", "minAppVersion", "kind", "runtimes"],
+  "additionalProperties": true,
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "minAppVersion": { "type": "string" },
+    "kind": {
+      "type": "string",
+      "enum": ["plugin", "theme", "template", "builtin", "obsidian-compat"]
+    },
+    "runtimes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["preview", "transform", "process", "obsidian-shim"]
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "author": { "type": "string" },
+    "description": { "type": "string" },
+    "homepage": { "type": "string" },
+    "main": { "type": "object" },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "permissions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "assets": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "integrity": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "obsidian": {
+      "type": "object",
+      "properties": {
+        "tier": { "type": ["string", "null"], "enum": ["A", "B", null] },
+        "upstreamId": { "type": "string" }
+      }
+    },
+    "i18n": { "type": "object" }
+  }
+}

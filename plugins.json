@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-10T00:00:00Z",
+  "index": {
+    "name": "MuseMate Plugins",
+    "homepage": "https://github.com/niuwoai/musemate-plugins",
+    "compatDoc": "COMPAT.md"
+  },
+  "packs": [
+    {
+      "id": "builtin-mermaid",
+      "name": "Mermaid",
+      "description": "Built-in Mermaid fence renderer (ships with MuseMate; listed for catalog completeness).",
+      "author": "MuseMate",
+      "repo": "niuwoai/musemate-plugins",
+      "npm": null,
+      "kind": "builtin",
+      "runtimes": ["preview"],
+      "categories": ["viewer"],
+      "obsidianCompat": null,
+      "minAppVersion": "1.5.0",
+      "addedAt": "2026-11-10",
+      "status": "placeholder"
+    },
+    {
+      "id": "builtin-markmap",
+      "name": "MarkMap",
+      "description": "Built-in MarkMap fence renderer (ships with MuseMate; listed for catalog completeness).",
+      "author": "MuseMate",
+      "repo": "niuwoai/musemate-plugins",
+      "npm": null,
+      "kind": "builtin",
+      "runtimes": ["preview"],
+      "categories": ["viewer"],
+      "obsidianCompat": null,
+      "minAppVersion": "1.5.0",
+      "addedAt": "2026-11-10",
+      "status": "placeholder"
+    },
+    {
+      "id": "builtin-katex",
+      "name": "KaTeX",
+      "description": "Built-in KaTeX / LaTeX preview (ships with MuseMate; listed for catalog completeness).",
+      "author": "MuseMate",
+      "repo": "niuwoai/musemate-plugins",
+      "npm": null,
+      "kind": "builtin",
+      "runtimes": ["preview"],
+      "categories": ["viewer"],
+      "obsidianCompat": null,
+      "minAppVersion": "1.5.0",
+      "addedAt": "2026-11-10",
+      "status": "placeholder"
+    },
+    {
+      "id": "example-timeline-fence",
+      "name": "Timeline Fence (Example)",
+      "description": "Example native preview capsule entry. Replace repo with a real release before enabling in production catalogs.",
+      "author": "MuseMate",
+      "repo": "niuwoai/musemate-plugins",
+      "npm": null,
+      "kind": "plugin",
+      "runtimes": ["preview"],
+      "categories": ["viewer"],
+      "obsidianCompat": null,
+      "minAppVersion": "1.6.0",
+      "addedAt": "2026-11-10",
+      "status": "example"
+    },
+    {
+      "id": "remark-math",
+      "name": "remark-math",
+      "description": "Math AST transform via the remark-math npm package (transform runtime; curated allowlist).",
+      "author": "remarkjs",
+      "repo": null,
+      "npm": "remark-math",
+      "kind": "plugin",
+      "runtimes": ["transform"],
+      "categories": ["viewer"],
+      "obsidianCompat": null,
+      "minAppVersion": "1.7.0",
+      "addedAt": "2026-11-10",
+      "status": "planned"
+    },
+    {
+      "id": "hotkeysplus-obsidian",
+      "name": "Hotkeys++",
+      "description": "Example Obsidian Tier B catalog entry (compat shim required). Upstream: argensos/hotkeysplus-obsidian.",
+      "author": "argenos",
+      "repo": "argenos/hotkeysplus-obsidian",
+      "npm": null,
+      "kind": "obsidian-compat",
+      "runtimes": ["obsidian-shim"],
+      "categories": ["editor"],
+      "obsidianCompat": {
+        "tier": "B",
+        "upstreamId": "hotkeysplus-obsidian",
+        "requiredApis": ["Plugin", "addCommand", "loadData", "saveData"]
+      },
+      "minAppVersion": "1.6.0",
+      "addedAt": "2026-11-10",
+      "status": "example"
+    }
+  ]
+}

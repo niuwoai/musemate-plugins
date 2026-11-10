@@ -1,0 +1,63 @@
+name: Validate index
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install ajv
+        run: npm install --no-save ajv@8 ajv-formats@3
+
+      - name: Validate plugins.json against schema
+        run: |
+          node <<'NODE'
+          const fs = require('fs');
+          const Ajv = require('ajv');
+          const addFormats = require('ajv-formats');
+          const ajv = new Ajv({ allErrors: true, strict: false });
+          addFormats(ajv);
+          const schema = JSON.parse(fs.readFileSync('schemas/plugins.schema.json', 'utf8'));
+          const data = JSON.parse(fs.readFileSync('plugins.json', 'utf8'));
+          const validate = ajv.compile(schema);
+          const ok = validate(data);
+          if (!ok) {
+            console.error(validate.errors);
+            process.exit(1);
+          }
+          const ids = new Set();
+          for (const pack of data.packs) {
+            if (ids.has(pack.id)) {
+              console.error('duplicate id:', pack.id);
+              process.exit(1);
+            }
+            ids.add(pack.id);
+            if (!pack.repo && !pack.npm) {
+              console.error('pack missing repo/npm:', pack.id);
+              process.exit(1);
+            }
+            if (pack.kind === 'obsidian-compat') {
+              if (!pack.obsidianCompat || !pack.obsidianCompat.tier) {
+                console.error('obsidian-compat pack missing obsidianCompat.tier:', pack.id);
+                process.exit(1);
+              }
+              if (!pack.runtimes.includes('obsidian-shim')) {
+                console.error('obsidian-compat pack must include obsidian-shim runtime:', pack.id);
+                process.exit(1);
+              }
+            }
+          }
+          console.log('OK:', data.packs.length, 'packs');
+          NODE
+
+      - name: Validate categories.json is JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('categories.json','utf8')); console.log('categories OK')"

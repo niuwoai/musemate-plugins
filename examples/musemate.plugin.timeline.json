@@ -1,0 +1,32 @@
+{
+  "id": "example-timeline-fence",
+  "name": "Timeline Fence",
+  "version": "0.1.0",
+  "minAppVersion": "1.6.0",
+  "kind": "plugin",
+  "runtimes": ["preview"],
+  "categories": ["viewer"],
+  "author": "MuseMate",
+  "description": "Example preview capsule that would register a timeline fence.",
+  "homepage": "https://github.com/niuwoai/musemate-plugins",
+  "main": {
+    "preview": "preview.mjs",
+    "styles": "styles.css"
+  },
+  "capabilities": ["fence-renderer"],
+  "permissions": [],
+  "assets": ["preview.mjs", "styles.css"],
+  "integrity": {
+    "preview.mjs": "sha256-REPLACE",
+    "styles.css": "sha256-REPLACE"
+  },
+  "obsidian": {
+    "tier": null
+  },
+  "i18n": {
+    "zh-Hans": {
+      "name": "时间轴围栏",
+      "description": "示例：在预览中渲染 timeline 代码块"
+    }
+  }
+}
